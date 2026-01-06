@@ -5,7 +5,7 @@ const trailToFollowLabel = 'Trail set to:';
 const failureMessage = 'NOT OK.';
 const successMessage = 'OK. Good answer';
 
-test.describe('Second exercise - Editbox', () => {
+test.describe('Third exercise - Dropdown list', () => {
     test('Happy path - we follow the trail', {
         tag: '@happy'
     }, async ({ page }) => {

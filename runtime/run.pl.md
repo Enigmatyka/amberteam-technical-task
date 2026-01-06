@@ -1,20 +1,20 @@
-# How to run tests
+# Jak uruchamiać testy
 
-## Requirements
+## Wymagania
 - Node.js 18+
 - npm
 
-## Install dependencies
+## Dodaj zależności
 npm install
 
-## Run all tests
+## Uruchom całość testów
 npm test
 
-## Run tests with UI
+## Uruchom testy (krok po kroku w stylu Cypressa, do debugowania)
 npm run test:ui
 
-## Run in headed mode
+## Uruchom w trybie wizualnym (brak debugowania)
 npm run test:headed
 
-## View HTML report
+## Wyświetl raport HTML
 npm run report
