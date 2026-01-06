@@ -1,0 +1,19 @@
+{
+  "name": "amberteam-technical-task",
+  "version": "1.0.0",
+  "description": "Prosty moduł testów w Playwright pokazujący podstawowe funkcjonalności oraz praktyki przydatne przy tworzeniu testów aplikacji WWW.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "keywords": ["testing", "frontend", "automation"],
+  "author": "Patryk Miszczak",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3"
+  }
+}
