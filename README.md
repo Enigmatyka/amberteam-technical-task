@@ -1,3 +1,10 @@
+# Testy frontendu -> Playwright
+
+Prosty moduł testów w Playwright pokazujący podstawowe funkcjonalności oraz 
+praktyki przydatne przy tworzeniu testów aplikacji WWW.
+
+Na potrzeby uruchomienia testów lokalnie, domyślnie włączono ignorowanie błędów HTTPS.
+
 # Jak uruchamiać testy
 
 ## Wymagania
@@ -18,3 +25,6 @@ npm run test:headed
 
 ## Wyświetl raport HTML
 npm run report
+
+## Autor
+Patryk Miszczak

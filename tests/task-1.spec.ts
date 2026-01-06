@@ -4,6 +4,12 @@ const urlToVisit = '/exercises/exercise1';
 const trailToFollowLabel = 'Trail set to:';
 const failureMessage = 'NOT OK.';
 const successMessage = 'OK. Good answer';
+const endpoint = urlToVisit + '/button'; // this macthes both
+
+// this might be flaky when run as a whole suite in headed mode, when run on its own
+// npx playwright test tests/task-1.spec.ts
+// works fine, needs some tuning and research and maybe checking it in CI/CD
+
 
 test.describe('First exercise - three buttons', () => {
   test('Happy path - we follow the trail', {
@@ -22,7 +28,10 @@ test.describe('First exercise - three buttons', () => {
     for (let label of buttonsToClickLabels) {
       const buttonToClick = page.locator('button').filter({ hasText: label });
       await expect(buttonToClick).toBeVisible();
-      await buttonToClick.click();
+      const [resp] = await Promise.all([
+        page.waitForResponse(resp => resp.url().includes(endpoint)),
+        buttonToClick.click()
+      ]);
     }
 
     await page.locator('#solution').click(); // let's check
@@ -38,8 +47,16 @@ test.describe('First exercise - three buttons', () => {
     const clickCount = 5;
 
     for (let i = 0; i < clickCount; ++i) {
-      await page.locator(`[name=${buttonsToPressNames[0]}]`).click();
-      await page.locator(`[name=${buttonsToPressNames[1]}]`).click();
+      const [resp] = await Promise.all([
+        page.waitForResponse(resp => resp.url().includes(endpoint)),
+        page.locator(`[name=${buttonsToPressNames[0]}]`).click()
+      ]);
+
+      const [resp2] = await Promise.all([
+        page.waitForResponse(resp => resp.url().includes(endpoint)),
+        page.locator(`[name=${buttonsToPressNames[1]}]`).click()
+      ]);
+
     }
 
     await page.locator('#solution').click(); // let's check
